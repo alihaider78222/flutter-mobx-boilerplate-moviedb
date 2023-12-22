@@ -1,7 +1,6 @@
 name: mobx_example
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
 version: 1.0.0+1
 
 environment:
@@ -13,10 +12,50 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # A
+  # B
+  # C
+  cached_network_image: ^3.3.0
+  # D
+  dio: ^5.1.2
+  # E
+  easy_localization: ^3.0.2
+  # F
+  flutter_flavor: ^3.1.1
+  flutter_mobx: ^2.0.6+5
+  mobx: ^2.0.7
+  # G
+  get_it: ^7.6.0
+  # I
+  # J
+  json_serializable: ^6.6.2
+  # K
+  # L
+  # M
+  # N
+  # O
+  # P
+  # Q
+  # R
+  # S
+  shared_preferences: ^2.1.1
+  # T
+  # U
+  # V
+  # W
+  # X
+  # Y
+  # Z
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
+  build_runner: ^2.4.4
+  injectable_generator: ^2.1.5  # this will help the injectable to generate injectable files automatically otherwise we have to do it manually
+  analyzer: ^5.12.0
+  mobx_codegen: ^2.3.0
 
 
 flutter:

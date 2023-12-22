@@ -1,22 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:mobx_example/presentation/screens/home/home.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
+import 'package:mobx_example/data/data_sources/remote/constants/network_constants.dart';
+import 'main_core.dart' as core;
+import 'core/config/flavors/flavors.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+void main() => core.initializeMain(
+      () => FlavorConfig(
+        name: Environment.PROD.name,
+        variables: {
+          'baseUrl': NetworkConstants.baseUrlDev,
+          'connectionTimeout': NetworkConstants.connectionTimeout,
+          'receiveTimeout': NetworkConstants.receiveTimeout,
+        },
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
-  }
-}
