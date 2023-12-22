@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:mobx_example/generated/locale_keys.g.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -22,7 +24,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Flutter Demo Home Page'),
+        // title: Text(context.tr('title')),
+        title: Text(LocaleKeys.title.tr()),
       ),
       body: Center(
         child: Column(

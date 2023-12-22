@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobx_example/core/settings/settings_controller.dart';
+import 'package:mobx_example/generated/codegen_loader.g.dart';
 import 'package:mobx_example/presentation/screens/home/home.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
-import 'package:mobx_example/presentation/screens/settings/settings_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'di/service_locator.dart';
+import 'generated/locale_keys.g.dart';
 
 typedef FlavorCallback = FlavorConfig Function();
 
@@ -14,8 +16,12 @@ Future<void> initializeMain(FlavorCallback flavorCallback) async {
   // Initialize flavor callback
   flavorCallback();
 
-  // initialize [service locator/ Dependency Injection] (get_it only)
-  await ServiceLocator.configureDependencies();
+  await Future.wait([
+    // initialize [service locator/ Dependency Injection] (get_it only)
+    ServiceLocator.configureDependencies(),
+    // initialize [Localization]
+    EasyLocalization.ensureInitialized()
+  ]);
 
   final SettingsController settingsController = getIt<SettingsController>();
 
@@ -24,7 +30,14 @@ Future<void> initializeMain(FlavorCallback flavorCallback) async {
   settingsController.loadSettings();
 
   runApp(
-    MyApp(settingsController: settingsController),
+    EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('de', 'DE')],
+      path: 'assets/langs',
+      assetLoader: const CodegenLoader(),
+      startLocale: const Locale('de', 'DE'), // for testing
+      fallbackLocale: const Locale('en', 'US'),
+      child: MyApp(settingsController: settingsController),
+    ),
   );
 }
 
@@ -43,7 +56,7 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Movie App',
+            title: LocaleKeys.title.tr(),
 
             // Define a light and dark color theme. Then, read the user's preferred ThemeMode (light, dark, or system default)
             theme: ThemeData(
@@ -53,7 +66,12 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData.dark(),
             themeMode: settingsController.themeMode,
 
-            home: const SettingsScreen(),
+            // Easy localization for Translation
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
+
+            home: const MyHomePage(),
           );
         });
   }
