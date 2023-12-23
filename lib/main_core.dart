@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mobx_example/constants/app_theme.dart';
 import 'package:mobx_example/core/settings/settings_controller.dart';
 import 'package:mobx_example/generated/codegen_loader.g.dart';
-import 'package:mobx_example/presentation/screens/home/home.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'di/service_locator.dart';
 import 'generated/locale_keys.g.dart';
+import 'presentation/routes/routes.dart';
 
 typedef FlavorCallback = FlavorConfig Function();
 
@@ -59,11 +60,8 @@ class MyApp extends StatelessWidget {
             title: LocaleKeys.title.tr(),
 
             // Define a light and dark color theme. Then, read the user's preferred ThemeMode (light, dark, or system default)
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            darkTheme: ThemeData.dark(),
+            theme: themeDataLight,
+            darkTheme: themeDataDark,
             themeMode: settingsController.themeMode,
 
             // Easy localization for Translation
@@ -71,7 +69,9 @@ class MyApp extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             locale: context.locale,
 
-            home: const MyHomePage(),
+            // Routes
+            routes: <String, WidgetBuilder>{}..addAll(Routes.routes),
+            initialRoute: Routes.settings.route,
           );
         });
   }
