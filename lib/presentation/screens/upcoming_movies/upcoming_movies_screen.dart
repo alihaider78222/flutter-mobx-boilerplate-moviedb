@@ -138,7 +138,7 @@ class _UpComingMoviesScreenState extends State<UpComingMoviesScreen> {
     );
   }
 
-  // movie image:-------------------------------------------------------------------
+  // movie image:--------------------------------------------.-----------------------
   _movieCardShadowImage(Movie movie) => Container(
         height: 180,
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),

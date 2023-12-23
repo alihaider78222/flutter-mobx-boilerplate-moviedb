@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx_example/core/models/screen_args.dart';
 import 'package:mobx_example/di/service_locator.dart';
-import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
+import 'package:mobx_example/presentation/stores/movie_store.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   const MovieDetailScreen({
@@ -12,21 +13,16 @@ class MovieDetailScreen extends StatefulWidget {
 }
 
 class _MovieDetailScreenState extends State<MovieDetailScreen> {
-  ScreenArguments<int>? args;
+  // Stores: -------------------------------------------------------------
+  final MovieStore _movieStore = getIt<MovieStore>();
 
+  // variables: -------------------------------------------------------------
+  ScreenArguments<int>? args;
   int? movieId;
 
   @override
   void initState() {
     super.initState();
-
-    // var params = MovieDetailParams(
-    //   language: 'en-US',
-    //   movie_id: 572802,
-    // );
-    // _getMovieDetailUseCase.call(params: params).then((value) {
-    //   print(value);
-    // });
   }
 
   @override
@@ -34,31 +30,54 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     super.didChangeDependencies();
 
     args = ModalRoute.of(context)!.settings.arguments as ScreenArguments<int>?;
-
     movieId = args?.value;
 
-    print('movieId');
-    print(movieId);
+    if (movieId != null) {
+      fetchData(movieId!);
+    }
+  }
+
+  void fetchData(int movieId) {
+    _movieStore.getMovieDetail(movieId);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // title: Text(context.tr('title')),
-        title: Text("Movie Detail"),
-      ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
-      ),
+      body: _body(),
     );
   }
+
+  // body:-------------------------------------------------------------------
+  _body() => Observer(
+        builder: (context) {
+          return _movieStore.dataStateMovieDetail.handleState(
+            loading: () {
+              return _buildLoader();
+            },
+            success: (data) {
+              return Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    _movieStore.movieDetail?.originalTitle ??
+                        _movieStore.movieDetail?.title ??
+                        'N/A',
+                    style: TextStyle(color: Colors.black),
+                  )
+                ],
+              );
+            },
+            error: (error) {
+              return Center(child: Text(error.toString()));
+            },
+          );
+        },
+      );
+
+  // Loader
+  Widget _buildLoader() => const Align(
+        alignment: Alignment.center,
+        child: CircularProgressIndicator(),
+      );
 }
