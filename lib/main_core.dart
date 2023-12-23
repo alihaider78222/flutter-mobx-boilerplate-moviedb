@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
 
             // Routes
             routes: <String, WidgetBuilder>{}..addAll(Routes.routes),
-            initialRoute: Routes.movieDetail.route,
+            initialRoute: Routes.searchMovies.route,
           );
         });
   }

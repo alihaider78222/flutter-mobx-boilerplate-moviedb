@@ -1,16 +1,16 @@
 import 'package:mobx_example/core/usecase/usecase.dart';
-import 'package:mobx_example/domain/entities/movie/upcoming_movies.dart';
+import 'package:mobx_example/domain/entities/movie/movies_list.dart';
 
 import '../../repository_interfaces/movies/movies_repository.dart';
 
 class GetUpComingMoviesUseCase
-    implements UseCase<UpComingMovies?, UpComingMoviesParams> {
+    implements UseCase<MoviesList?, UpComingMoviesParams> {
   final MoviesRepository _moviesRepository;
 
   GetUpComingMoviesUseCase(this._moviesRepository);
 
   @override
-  Future<UpComingMovies?> call({required UpComingMoviesParams params}) async {
+  Future<MoviesList?> call({required UpComingMoviesParams params}) async {
     return _moviesRepository.getUpcomingMovies(params);
   }
 }

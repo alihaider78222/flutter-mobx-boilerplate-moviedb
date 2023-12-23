@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:mobx_example/di/service_locator.dart';
 import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
+import 'package:mobx_example/domain/usecases/movies/get_search_movies.dart';
 
-class MovieDetailScreen extends StatefulWidget {
-  const MovieDetailScreen({
+class SearchMoviesScreen extends StatefulWidget {
+  const SearchMoviesScreen({
     super.key,
   });
   @override
-  State<MovieDetailScreen> createState() => _MovieDetailScreenState();
+  State<SearchMoviesScreen> createState() => _SearchMoviesScreenState();
 }
 
-class _MovieDetailScreenState extends State<MovieDetailScreen> {
-  final _getMovieDetailUseCase = getIt<GetMovieDetailUseCase>();
+class _SearchMoviesScreenState extends State<SearchMoviesScreen> {
+  final _getSearchMoviesUseCase = getIt<GetSearchMoviesUseCase>();
 
   @override
   void initState() {
     super.initState();
 
-    var params = MovieDetailParams(
+    var params = SearchMoviesParams(
       language: 'en-US',
-      movie_id: 572802,
+      query: 'aqua',
+      page: 1,
     );
-    _getMovieDetailUseCase.call(params: params).then((value) {
+    _getSearchMoviesUseCase.call(params: params).then((value) {
       print(value);
     });
   }

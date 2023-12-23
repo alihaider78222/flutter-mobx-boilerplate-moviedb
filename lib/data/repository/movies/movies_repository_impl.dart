@@ -6,9 +6,10 @@ import 'package:mobx_example/core/dio/exception/exception_utils.dart';
 import 'package:mobx_example/data/data_sources/remote/apis/movies/movie_api.dart';
 import 'package:mobx_example/domain/entities/movie/movie_detail.dart';
 
-import 'package:mobx_example/domain/entities/movie/upcoming_movies.dart';
+import 'package:mobx_example/domain/entities/movie/movies_list.dart';
 import 'package:mobx_example/domain/repository_interfaces/movies/movies_repository.dart';
 import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
+import 'package:mobx_example/domain/usecases/movies/get_search_movies.dart';
 import 'package:mobx_example/domain/usecases/movies/get_upcoming_movies.dart';
 
 @Singleton(as: MoviesRepository)
@@ -25,7 +26,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   );
 
   @override
-  Future<UpComingMovies?> getUpcomingMovies(UpComingMoviesParams params) async {
+  Future<MoviesList?> getUpcomingMovies(UpComingMoviesParams params) async {
     try {
       final response = await _movieApi.getUpComingMovies(params);
       // await _postLocalDatasource.savePosts(postsList);  // TODO for local caching
@@ -57,6 +58,17 @@ class MoviesRepositoryImpl implements MoviesRepository {
       } else {
         rethrow;
       }
+    } catch (e) {
+      debugPrint('$e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<MoviesList?> getSearchedMovies(SearchMoviesParams params) async {
+    try {
+      final response = await _movieApi.getSearchedMovies(params);
+      return response;
     } catch (e) {
       debugPrint('$e');
       rethrow;

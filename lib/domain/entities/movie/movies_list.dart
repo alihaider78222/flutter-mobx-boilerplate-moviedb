@@ -2,12 +2,12 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'movie.dart';
 
-part 'upcoming_movies.g.dart';
+part 'movies_list.g.dart';
 
 // ignore_for_file: non_constant_identifier_names
 
 @JsonSerializable()
-class UpComingMovies {
+class MoviesList {
   // @JsonKey(name: 'dates')
   // final String? dates;
 
@@ -20,18 +20,18 @@ class UpComingMovies {
   @JsonKey(name: 'results')
   final List<Movie>? results;
 
-  UpComingMovies({
+  MoviesList({
     this.page,
     this.total_pages,
     this.results,
   });
 
-  factory UpComingMovies.empty() => UpComingMovies();
+  factory MoviesList.empty() => MoviesList();
 
-  factory UpComingMovies.fromJson(Map<String, dynamic> json) =>
-      _$UpComingMoviesFromJson(json);
+  factory MoviesList.fromJson(Map<String, dynamic> json) =>
+      _$MoviesListFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UpComingMoviesToJson(this);
+  Map<String, dynamic> toJson() => _$MoviesListToJson(this);
 }
 
 var res = {

@@ -19,4 +19,5 @@ class NetworkConstants {
   // urls
   static const String upComingMoviesUrl = "movie/upcoming";
   static const String movieDetailUrl = "movie";
+  static const String searchMoviesUrl = "search/movie";
 }
