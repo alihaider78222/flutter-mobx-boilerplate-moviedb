@@ -7,7 +7,7 @@ void main() => core.initializeMain(
       () => FlavorConfig(
         name: Environment.PROD.name,
         variables: {
-          'baseUrl': NetworkConstants.baseUrlDev,
+          'baseUrl': NetworkConstants.baseUrlProd,
           'connectionTimeout': NetworkConstants.connectionTimeout,
           'receiveTimeout': NetworkConstants.receiveTimeout,
         },

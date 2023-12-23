@@ -1,0 +1,178 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"run",
+				"build_runner",
+				"watch"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"label": "flutter: flutter pub run build_runner watch",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"run",
+				"build_runner",
+				"build",
+				"--delete-conflicting-outputs"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"label": "flutter: flutter pub run build_runner build --delete-conflicting-outputs",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"run",
+				"build_runner",
+				"serve"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"label": "flutter: flutter pub run build_runner serve",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"ipa"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build ipa",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"aar"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build aar",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"apk"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build apk",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"appbundle"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build appbundle",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"bundle"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build bundle",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"ios"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build ios",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"ios-framework"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build ios-framework",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"macos"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build macos",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"web"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "flutter: flutter build web",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"run",
+				"build_runner",
+				"build"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"label": "flutter: flutter pub run build_runner build",
+			"detail": ""
+		}
+	]
+}

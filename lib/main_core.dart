@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mobx_example/constants/app_theme.dart';
 import 'package:mobx_example/core/settings/settings_controller.dart';
 import 'package:mobx_example/generated/codegen_loader.g.dart';
@@ -17,12 +18,21 @@ Future<void> initializeMain(FlavorCallback flavorCallback) async {
   // Initialize flavor callback
   flavorCallback();
 
+  await dotenv.load(fileName: ".env");
+
   await Future.wait([
     // initialize [service locator/ Dependency Injection] (get_it only)
     ServiceLocator.configureDependencies(),
     // initialize [Localization]
     EasyLocalization.ensureInitialized()
   ]);
+
+  // await SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  //   DeviceOrientation.landscapeLeft,
+  //   DeviceOrientation.landscapeRight,
+  // ]);
 
   final SettingsController settingsController = getIt<SettingsController>();
 
@@ -71,7 +81,7 @@ class MyApp extends StatelessWidget {
 
             // Routes
             routes: <String, WidgetBuilder>{}..addAll(Routes.routes),
-            initialRoute: Routes.settings.route,
+            initialRoute: Routes.upcomingMovies.route,
           );
         });
   }

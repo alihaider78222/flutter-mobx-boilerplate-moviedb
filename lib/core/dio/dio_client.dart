@@ -10,7 +10,7 @@ class DioClient {
 
   factory DioClient.basic({required DioConfigs dioConfigs}) => DioClient(
       dio: Dio()
-        // ..options.baseUrl = dioConfigs.baseUrl
+        ..options.baseUrl = dioConfigs.baseUrl
         ..options.connectTimeout =
             Duration(milliseconds: dioConfigs.connectionTimeout)
         ..options.receiveTimeout =

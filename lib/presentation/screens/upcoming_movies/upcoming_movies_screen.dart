@@ -4,20 +4,35 @@ import 'package:mobx_example/di/service_locator.dart';
 import 'package:mobx_example/domain/usecases/movies/get_upcoming_movies.dart';
 import 'package:mobx_example/generated/locale_keys.g.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
+class UpComingMoviesScreen extends StatefulWidget {
+  const UpComingMoviesScreen({
     super.key,
   });
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<UpComingMoviesScreen> createState() => _UpComingMoviesScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _UpComingMoviesScreenState extends State<UpComingMoviesScreen> {
   int _counter = 0;
+
+  var _getUpComingMoviesUseCase = getIt<GetUpComingMoviesUseCase>();
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    var params = UpComingMoviesParams(
+      language: 'en-US',
+      page: 1,
+    );
+    _getUpComingMoviesUseCase.call(params: params).then((value) {
+      print(value);
     });
   }
 
