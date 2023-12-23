@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobx_example/di/service_locator.dart';
-import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
 import 'package:mobx_example/domain/usecases/movies/get_search_movies.dart';
 
 class SearchMoviesScreen extends StatefulWidget {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:mobx_example/di/service_locator.dart';
-import 'package:mobx_example/domain/usecases/movies/get_upcoming_movies.dart';
 import 'package:mobx_example/generated/locale_keys.g.dart';
 
 class MyHomePage extends StatefulWidget {

@@ -3,5 +3,6 @@
 abstract class  LocaleKeys {
   static const title = 'title';
   static const settings = 'settings';
+  static const watch = 'watch';
 
 }

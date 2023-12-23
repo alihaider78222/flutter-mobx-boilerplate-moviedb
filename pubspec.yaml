@@ -18,6 +18,7 @@ dependencies:
   cached_network_image: ^3.3.0
   # D
   dio: ^5.1.2
+  data_state_mobx: ^0.1.0
   # E
   easy_localization: ^3.0.2
   # F
@@ -26,6 +27,7 @@ dependencies:
   f_logs: ^2.0.1
   firebase_crashlytics: ^3.4.8
   flutter_dotenv: ^5.1.0
+  flutter_svg: ^2.0.9
   # G
   get_it: ^7.6.0
   # I
@@ -68,8 +70,8 @@ flutter:
 
   assets:
     - .env
-  # - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+    - assets/images/
+    - assets/icons/
 
   fonts:
     - family: Poppins

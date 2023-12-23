@@ -7,7 +7,7 @@ import 'package:mobx_example/domain/entities/movie/movies_list.dart';
 import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
 import 'package:mobx_example/domain/usecases/movies/get_search_movies.dart';
 import 'package:mobx_example/domain/usecases/movies/get_upcoming_movies.dart';
-import 'package:mobx_example/utils/logs/log_utils.dart';
+import 'package:mobx_example/core/logs/log_utils.dart';
 
 import '../../../../../core/dio/dio_client.dart';
 import '../../constants/network_constants.dart';

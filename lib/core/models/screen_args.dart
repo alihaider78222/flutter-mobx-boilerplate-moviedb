@@ -11,5 +11,5 @@ class ScreenArguments<T> {
 class ScreenArgumentKeys {
   ScreenArgumentKeys._();
 
-  static const String itemId = 'item_id';
+  static const String movieId = 'movieId';
 }

@@ -14,7 +14,7 @@ class NetworkConstants {
   static const int cacheTimeOut = kDefaultCacheTimeOutInMinutes;
 
   // image
-  static const String imageUrl = "http://image.tmdb.org/t/p/";
+  static const String imageUrl = "http://image.tmdb.org/t/p/w500";
 
   // urls
   static const String upComingMoviesUrl = "movie/upcoming";
