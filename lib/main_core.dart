@@ -69,6 +69,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: LocaleKeys.title.tr(),
 
+            navigatorKey: GlobalKey(),
+            // MaterialApp to restore the navigation stack when a user leaves and come back
+            restorationScopeId: 'app_root',
+
             // Define a light and dark color theme. Then, read the user's preferred ThemeMode (light, dark, or system default)
             theme: themeDataLight,
             darkTheme: themeDataDark,
@@ -81,7 +85,7 @@ class MyApp extends StatelessWidget {
 
             // Routes
             routes: <String, WidgetBuilder>{}..addAll(Routes.routes),
-            initialRoute: Routes.upcomingMovies.route,
+            initialRoute: Routes.home.route,
           );
         });
   }
