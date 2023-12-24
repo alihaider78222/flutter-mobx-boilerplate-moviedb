@@ -54,7 +54,8 @@ class _UpComingMoviesScreenState extends State<UpComingMoviesScreen> {
 
   // app bar:-------------------------------------------------------------------
   _appBar() => AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         title: Text(
           LocaleKeys.watch.tr(),
           style: TextStyle(color: Colors.black),

@@ -3,8 +3,10 @@ import 'package:mobx/mobx.dart';
 import 'package:mobx_example/core/dio/exception/exception_utils.dart';
 import 'package:mobx_example/domain/entities/movie/movie_detail.dart';
 import 'package:mobx_example/domain/entities/movie/movies_list.dart';
+import 'package:mobx_example/domain/entities/movie/trailer_video.dart';
 import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
 import 'package:mobx_example/domain/usecases/movies/get_search_movies.dart';
+import 'package:mobx_example/domain/usecases/movies/get_trailer_videos.dart';
 import 'package:mobx_example/domain/usecases/movies/get_upcoming_movies.dart';
 
 part 'movie_store.g.dart';
@@ -16,12 +18,14 @@ abstract class _MovieStore with Store {
   final GetUpComingMoviesUseCase _getUpComingMoviesUseCase;
   final GetMovieDetailUseCase _getMovieDetailUseCase;
   final GetSearchMoviesUseCase _getSearchMoviesUseCase;
+  final GetTrailerVideosUseCase _getTrailerVideosUseCase;
 
   // constructor:---------------------------------------------------------------
   _MovieStore(
     this._getUpComingMoviesUseCase,
     this._getMovieDetailUseCase,
     this._getSearchMoviesUseCase,
+    this._getTrailerVideosUseCase,
   ) {
     // converting Genre to Map for optimization
     // ignore: prefer_for_elements_to_map_fromiterable
@@ -151,6 +155,39 @@ abstract class _MovieStore with Store {
     {"id": 10752, "name": "War"},
     {"id": 37, "name": "Western"}
   ];
+
+  // Trailer Videos List : ---------------------------------------------------------
+  final dataStateTrailerVideos = DataState<TrailerVideos?>();
+
+  @observable
+  String? trailerVideo;
+
+  @action
+  Future getTrailerVideos(int movieId) async {
+    dataStateTrailerVideos.setLoadingState();
+    var params = TrailerVideosParams(
+      language: 'en-US',
+      movie_id: movieId,
+    );
+
+    final future = _getTrailerVideosUseCase.call(params: params);
+    await future.then((value) async {
+      if (value != null) {
+        for (Result element in value.results ?? []) {
+          if (element.site == Site.YOU_TUBE) {
+            trailerVideo = "https://www.youtube.com/watch?v=${element.key}";
+            break;
+          }
+        }
+      }
+      dataStateTrailerVideos.setSuccessState(value);
+    }).catchError((e) {
+      print(e);
+      var errorMessage = ExceptionUtils.getMessage(e);
+      print('Catch Error $errorMessage');
+      dataStateTrailerVideos.setErrorState(errorMessage);
+    });
+  }
 
   // general methods:-----------------------------------------------------------
   void dispose() {}

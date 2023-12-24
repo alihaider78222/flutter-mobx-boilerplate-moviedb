@@ -4,8 +4,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mobx_example/core/dio/exception/exception_utils.dart';
 import 'package:mobx_example/domain/entities/movie/movie_detail.dart';
 import 'package:mobx_example/domain/entities/movie/movies_list.dart';
+import 'package:mobx_example/domain/entities/movie/trailer_video.dart';
 import 'package:mobx_example/domain/usecases/movies/get_movie_detail.dart';
 import 'package:mobx_example/domain/usecases/movies/get_search_movies.dart';
+import 'package:mobx_example/domain/usecases/movies/get_trailer_videos.dart';
 import 'package:mobx_example/domain/usecases/movies/get_upcoming_movies.dart';
 import 'package:mobx_example/core/logs/log_utils.dart';
 
@@ -85,6 +87,27 @@ class MovieApiImpl extends MovieApi {
     } on Object catch (error) {
       LogUtils.logError(
           'MovieApiImpl', 'getSearchedMovies', 'Catch Error', error);
+      throw ExceptionUtils.handleException(error);
+    }
+  }
+
+  @override
+  Future<TrailerVideos?> getTrailerVideos(TrailerVideosParams params) async {
+    final queryParams = {
+      "language": params.language,
+    };
+
+    try {
+      final res = await _dioClient.dio.get(
+        '${NetworkConstants.movieDetailUrl}/${params.movie_id}/videos',
+        queryParameters: queryParams,
+      );
+      LogUtils.logInfo('MovieApiImpl', 'getTrailerVideos', res.data.toString());
+      print(res);
+      return TrailerVideos.fromJson(res.data);
+    } on Object catch (error) {
+      LogUtils.logError(
+          'MovieApiImpl', 'getTrailerVideos', 'Catch Error', error);
       throw ExceptionUtils.handleException(error);
     }
   }

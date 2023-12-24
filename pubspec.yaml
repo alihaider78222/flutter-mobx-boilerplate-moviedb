@@ -14,8 +14,10 @@ dependencies:
 
   # A
   # B
+  better_player: ^0.0.83
   # C
   cached_network_image: ^3.3.0
+  collection: ^1.18.0
   # D
   dio: ^5.1.2
   data_state_mobx: ^0.1.0

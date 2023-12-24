@@ -4,13 +4,15 @@ import 'package:mobx_example/presentation/screens/movie_detail/movie_detail_scre
 import 'package:mobx_example/presentation/screens/settings/settings_screen.dart';
 import 'package:mobx_example/presentation/screens/upcoming_movies/upcoming_movies_screen.dart';
 import 'package:mobx_example/presentation/screens/search_movies/search_movies_screen.dart';
+import 'package:mobx_example/presentation/screens/watch_trailer/watch_trailer.dart';
 
 enum Routes {
   home("/home"),
   settings("/settings"),
   upcomingMovies("/upcomingMovies"),
   movieDetail("/movieDetail"),
-  searchMovies("/searchMovies");
+  searchMovies("/searchMovies"),
+  watchTrailer("/watchTrailer");
 
   final String route;
   const Routes(this.route);
@@ -22,5 +24,6 @@ enum Routes {
         UpComingMoviesScreen(),
     Routes.movieDetail.route: (BuildContext context) => MovieDetailScreen(),
     Routes.searchMovies.route: (BuildContext context) => SearchMoviesScreen(),
+    Routes.watchTrailer.route: (BuildContext context) => WatchTrailerScreen(),
   };
 }

@@ -8,6 +8,7 @@ import 'package:mobx_example/data/data_sources/remote/constants/network_constant
 import 'package:mobx_example/di/service_locator.dart';
 import 'package:mobx_example/domain/entities/movie/movie_detail.dart';
 import 'package:mobx_example/generated/locale_keys.g.dart';
+import 'package:mobx_example/presentation/routes/routes.dart';
 import 'package:mobx_example/presentation/stores/movie_store.dart';
 
 class MovieDetailScreen extends StatefulWidget {
@@ -238,7 +239,15 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   }
 
   Widget _watchTrailerButton() => OutlinedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(
+            Routes.watchTrailer.route,
+            arguments: ScreenArguments<int>(
+              key: ScreenArgumentKeys.movieId,
+              value: _movieStore.movieDetail?.id,
+            ),
+          );
+        },
         style: OutlinedButton.styleFrom(
             foregroundColor: AppColors.blue,
             side: const BorderSide(width: 1.0, color: AppColors.blue),

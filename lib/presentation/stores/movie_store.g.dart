@@ -57,6 +57,22 @@ mixin _$MovieStore on _MovieStore, Store {
     });
   }
 
+  late final _$trailerVideoAtom =
+      Atom(name: '_MovieStore.trailerVideo', context: context);
+
+  @override
+  String? get trailerVideo {
+    _$trailerVideoAtom.reportRead();
+    return super.trailerVideo;
+  }
+
+  @override
+  set trailerVideo(String? value) {
+    _$trailerVideoAtom.reportWrite(value, super.trailerVideo, () {
+      super.trailerVideo = value;
+    });
+  }
+
   late final _$getUpComingMoviesAsyncAction =
       AsyncAction('_MovieStore.getUpComingMovies', context: context);
 
@@ -81,12 +97,22 @@ mixin _$MovieStore on _MovieStore, Store {
     return _$getSearchMoviesAsyncAction.run(() => super.getSearchMovies(query));
   }
 
+  late final _$getTrailerVideosAsyncAction =
+      AsyncAction('_MovieStore.getTrailerVideos', context: context);
+
+  @override
+  Future<dynamic> getTrailerVideos(int movieId) {
+    return _$getTrailerVideosAsyncAction
+        .run(() => super.getTrailerVideos(movieId));
+  }
+
   @override
   String toString() {
     return '''
 moviesList: ${moviesList},
 movieDetail: ${movieDetail},
-searchMoviesList: ${searchMoviesList}
+searchMoviesList: ${searchMoviesList},
+trailerVideo: ${trailerVideo}
     ''';
   }
 }
