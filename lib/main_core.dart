@@ -45,7 +45,7 @@ Future<void> initializeMain(FlavorCallback flavorCallback) async {
       supportedLocales: const [Locale('en', 'US'), Locale('de', 'DE')],
       path: 'assets/langs',
       assetLoader: const CodegenLoader(),
-      startLocale: const Locale('de', 'DE'), // for testing
+      startLocale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
       child: MyApp(settingsController: settingsController),
     ),

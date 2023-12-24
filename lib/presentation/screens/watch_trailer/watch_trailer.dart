@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx_example/core/models/screen_args.dart';
 import 'package:better_player/better_player.dart';
 import 'package:mobx_example/di/service_locator.dart';
-import 'package:mobx_example/domain/entities/movie/trailer_video.dart';
 import 'package:mobx_example/presentation/stores/movie_store.dart';
 
 class WatchTrailerScreen extends StatefulWidget {

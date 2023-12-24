@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobx_example/constants/app_colors.dart';
 import 'package:mobx_example/constants/assets.dart';
 import 'package:mobx_example/di/service_locator.dart';
-import 'package:mobx_example/generated/locale_keys.g.dart';
-import 'package:mobx_example/presentation/routes/routes.dart';
 import 'package:mobx_example/presentation/screens/search_movies/search_movies_screen.dart';
 import 'package:mobx_example/presentation/screens/settings/settings_screen.dart';
 import 'package:mobx_example/presentation/screens/upcoming_movies/upcoming_movies_screen.dart';

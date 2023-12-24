@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobx_example/presentation/screens/get_ticket/get_ticket_screen.dart';
 import 'package:mobx_example/presentation/screens/home/home.dart';
 import 'package:mobx_example/presentation/screens/movie_detail/movie_detail_screen.dart';
 import 'package:mobx_example/presentation/screens/settings/settings_screen.dart';
@@ -12,7 +13,8 @@ enum Routes {
   upcomingMovies("/upcomingMovies"),
   movieDetail("/movieDetail"),
   searchMovies("/searchMovies"),
-  watchTrailer("/watchTrailer");
+  watchTrailer("/watchTrailer"),
+  getTicket("/getTicket");
 
   final String route;
   const Routes(this.route);
@@ -25,5 +27,6 @@ enum Routes {
     Routes.movieDetail.route: (BuildContext context) => MovieDetailScreen(),
     Routes.searchMovies.route: (BuildContext context) => SearchMoviesScreen(),
     Routes.watchTrailer.route: (BuildContext context) => WatchTrailerScreen(),
+    Routes.getTicket.route: (BuildContext context) => GetTicketScreen(),
   };
 }

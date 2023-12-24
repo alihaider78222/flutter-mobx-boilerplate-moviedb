@@ -228,7 +228,15 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           ),
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed(
+          Routes.getTicket.route,
+          arguments: ScreenArguments<int>(
+            key: ScreenArgumentKeys.movieId,
+            value: _movieStore.movieDetail?.id,
+          ),
+        );
+      },
       child: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 8),
         child: Text(
