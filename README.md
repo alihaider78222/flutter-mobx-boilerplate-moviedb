@@ -1,19 +1,39 @@
-# mobx_example
+# TenTwenty Assignment
 
 A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## How to Use
 
-A few resources to get you started if this is your first Flutter project:
+**Step 1:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Download or clone this repo by using the link below:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+https://github.com/alihaider78222/flutter-mobx-boilerplate-project
+```
+
+**Step 2:**
+
+rename ```.env-copy``` to ```.env``` and add your API and Access Token.
+
+## Screenshots
+
+<p float="left">
+  <img src="./screenshots/Screenshot_1.png" alt="image" width="220" height="auto" >
+<img src="./screenshots/Screenshot_2.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_3.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_4.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_5.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_6.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_7.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_8.png" alt="image" width="220" height="auto">
+<img src="./screenshots/Screenshot_9.png" alt="image" width="220" height="auto">
+</p>
+
+<br>
+
 
 ## Easy Localization for translation
 
