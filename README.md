@@ -35,6 +35,10 @@ rename ```.env-copy``` to ```.env``` and add your API and Access Token.
 <br>
 
 
+## Release / APK
+
+apk available in ```Releases``` section, download now to browse around.
+
 ## Easy Localization for translation
 
 run these command in terminal to generate local keys which can be used in app
