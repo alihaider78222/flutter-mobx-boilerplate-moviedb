@@ -88,17 +88,17 @@ class _UpComingMoviesScreenState extends State<UpComingMoviesScreen> {
                 children: [
                   Expanded(
                     child: ListView.builder(
-                        shrinkWrap: false,
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        itemCount: _movieStore.moviesList?.results?.length ?? 0,
-                        itemBuilder: (context, index) {
-                          Movie? movie =
-                              _movieStore.moviesList?.results?[index];
-                          if (movie != null) {
-                            return _movieCard(movie);
-                          }
-                          return const SizedBox();
-                        }),
+                      shrinkWrap: false,
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemCount: _movieStore.moviesList?.results?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        Movie? movie = _movieStore.moviesList?.results?[index];
+                        if (movie != null) {
+                          return _movieCard(movie);
+                        }
+                        return const SizedBox();
+                      },
+                    ),
                   ),
                 ],
               );
@@ -130,7 +130,7 @@ class _UpComingMoviesScreenState extends State<UpComingMoviesScreen> {
       },
       child: Stack(
         children: [
-          _movieCardShadowImage(movie),
+          _movieCardImage(movie),
           _movieCardShadowOverlay(),
           _movieCardTitle(movie)
         ],
@@ -139,7 +139,7 @@ class _UpComingMoviesScreenState extends State<UpComingMoviesScreen> {
   }
 
   // movie image:--------------------------------------------.-----------------------
-  _movieCardShadowImage(Movie movie) => Container(
+  _movieCardImage(Movie movie) => Container(
         height: 180,
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         child: CachedNetworkImage(
