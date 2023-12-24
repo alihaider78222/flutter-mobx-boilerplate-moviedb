@@ -1,5 +1,7 @@
 {
     "title": "Movies",
     "settings": "Settings",
-    "watch": "Watch Danish"
+    "watch": "Watch",
+    "overview": "Overview",
+    "genres": "Genres"
 }

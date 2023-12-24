@@ -4,5 +4,7 @@ abstract class  LocaleKeys {
   static const title = 'title';
   static const settings = 'settings';
   static const watch = 'watch';
+  static const overview = 'overview';
+  static const genres = 'genres';
 
 }
