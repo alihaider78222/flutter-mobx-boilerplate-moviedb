@@ -2,7 +2,6 @@
 
 Flutter boiler project with The Movie Database (TMDB) example using Clean architecture.
 
-
 ## How to Use
 
 **Step 1:**
@@ -22,8 +21,6 @@ rename ```.env-copy``` to ```.env``` and add your API and Access Token.
 <p style="text-align: center">
   <img src="./screenshots/demo.gif" alt="Movie Demo video">
 </p>
-
-
 
 ## Screenshots
 
@@ -67,8 +64,6 @@ run these command in terminal to generate local keys which can be used in app
 * intl
 * better_player (video player)
 * . . . . . .
-
-
 
 ### Folder Structure
 
@@ -249,7 +244,7 @@ This is where App Flavors are defined which are used further if we need to chang
 
 ## Wiki
 
-Checkout [wiki](https://github.com/zubairehman/flutter_boilerplate_project/wiki) for more info
+Checkout [wiki](https://github.com/alihaider78222/ali-haider-tentwenty-assignment/wiki) for more info
 
 ## Conclusion
 
