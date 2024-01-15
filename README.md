@@ -1,4 +1,4 @@
-# TenTwenty Assignment
+# Flutter MobX boilerplate project with Moviedb
 
 Flutter boiler project with The Movie Database (TMDB) example using Clean architecture.
 
@@ -40,7 +40,7 @@ rename ```.env-copy``` to ```.env``` and add your API and Access Token.
 
 ## Release / APK
 
-apk available in [Releases](https://github.com/alihaider78222/ali-haider-tentwenty-assignment/releases) section under ```Assets```, download now to browse around.
+apk available in [Releases](https://github.com/alihaider78222/flutter-mobx-boilerplate-project/releases) section under ```Assets```, download now to browse around.
 
 ## Easy Localization for translation
 
@@ -240,11 +240,11 @@ This is the starting point of the application. All the application level configu
 
 ### Main
 
-This is where App Flavors are defined which are used further if we need to change API Base urls depending upon the flavors.
+This is where App Flavors are defined which are used further if we need to change API Base Urls depending upon the flavors.
 
 ## Wiki
 
-Checkout [wiki](https://github.com/alihaider78222/ali-haider-tentwenty-assignment/wiki) for more info
+Checkout [wiki](https://github.com/alihaider78222/flutter-mobx-boilerplate-project/wiki) for more info
 
 ## Conclusion
 
